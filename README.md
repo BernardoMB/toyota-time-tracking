@@ -1,6 +1,17 @@
 # toyota-time-tracking
 This application automates the timesheet reporting process for Toyota and Advent.
 
+# Intallation
+- Clone the code repository.
+- Install Packages
+- Add the following user secrets
+	```bash
+	{
+	  "Mailtrap:Username": "*****",
+	  "Mailtrap:Password": "*****"
+	}
+	```
+
 # Integrations
 
 ## Mailtrap

@@ -20,7 +20,7 @@
               "FullName": "HoursApp.csproj",
               "DockedHeight": {
                 "UnitType": "Stretch",
-                "Value": 200
+                "Value": 284
               },
               "DockedWidth": {
                 "UnitType": "Stretch",
@@ -34,7 +34,7 @@
               "FullName": "appsettings.json",
               "DockedHeight": {
                 "UnitType": "Stretch",
-                "Value": 200
+                "Value": 284
               },
               "DockedWidth": {
                 "UnitType": "Stretch",
@@ -50,14 +50,14 @@
               "FullName": "Program.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
-                "Value": 200
+                "Value": 284
               },
               "DockedWidth": {
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 138,
-              "Column": 9,
+              "Line": 2,
+              "Column": 17,
               "IsPinned": true
             },
             {
@@ -66,7 +66,7 @@
               "FullName": "MailService.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
-                "Value": 200
+                "Value": 284
               },
               "DockedWidth": {
                 "UnitType": "Stretch",
@@ -77,12 +77,46 @@
               "IsPinned": true
             },
             {
+              "FilePath": "C:\\Users\\Bbronson\\source\\repos\\HoursApp\\HoursApp\\README.md",
+              "RelativePath": "..\\..\\README.md",
+              "FullName": "README.md",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 284
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 14,
+              "Column": 5,
+              "IsPinned": false,
+              "IsActive": true,
+              "IsSelected": true
+            },
+            {
+              "FilePath": "C:\\Users\\Bbronson\\AppData\\Roaming\\Microsoft\\UserSecrets\\1c44a5b7-c902-4bec-b7d9-180abb75e04a\\secrets.json",
+              "RelativePath": "..\\..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\1c44a5b7-c902-4bec-b7d9-180abb75e04a\\secrets.json",
+              "FullName": "secrets.json",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 284
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 4,
+              "Column": 2,
+              "IsPinned": false
+            },
+            {
               "FilePath": "C:\\Users\\Bbronson\\source\\repos\\HoursApp\\HoursApp\\.gitignore",
               "RelativePath": "..\\..\\.gitignore",
               "FullName": ".gitignore",
               "DockedHeight": {
                 "UnitType": "Stretch",
-                "Value": 200
+                "Value": 284
               },
               "DockedWidth": {
                 "UnitType": "Stretch",
@@ -90,13 +124,12 @@
               },
               "Line": 42,
               "Column": 25,
-              "IsPinned": false,
-              "IsSelected": true
+              "IsPinned": false
             }
           ],
           "DockedHeight": {
             "UnitType": "Stretch",
-            "Value": 200
+            "Value": 284
           },
           "DockedWidth": {
             "UnitType": "Stretch",
@@ -104,7 +137,7 @@
           }
         }
       ],
-      "Orientation": "Horizontal"
+      "Orientation": "Vertical"
     }
   ]
 }
