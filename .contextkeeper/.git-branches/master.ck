@@ -88,11 +88,9 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 14,
-              "Column": 5,
-              "IsPinned": false,
-              "IsActive": true,
-              "IsSelected": true
+              "Line": 23,
+              "Column": 1,
+              "IsPinned": false
             },
             {
               "FilePath": "C:\\Users\\Bbronson\\AppData\\Roaming\\Microsoft\\UserSecrets\\1c44a5b7-c902-4bec-b7d9-180abb75e04a\\secrets.json",
