@@ -1,0 +1,66 @@
+﻿using System.Net;
+using System.Net.Mail;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
+namespace HoursApp
+{
+    public class MailService
+    {
+        private readonly ILogger<MailService> _logger;
+        private readonly IConfiguration _config;
+
+        private const string Host = "smtp.mailtrap.io";
+        private const int Port = 587;
+        private readonly string _username;
+        private readonly string _password;
+
+        private readonly string _fromAddress = "bmondragonbrozon@gmail.com";
+        private readonly string _fromDisplay = "Bernardo Mondragon";
+
+        public MailService(ILogger<MailService> logger, IConfiguration config)
+        {
+            _logger = logger;
+            _config = config;
+
+            _username = _config["Mailtrap:Username"];
+            _password = _config["Mailtrap:Password"];
+        }
+
+        public void SendEmail(string to, string subject, string plainTextBody, string? htmlBody = null, string? attachmentPath = null)
+        {
+            using var smtp = new SmtpClient
+            {
+                Host = Host,
+                Port = Port,
+                EnableSsl = true,
+                Credentials = new NetworkCredential(_username, _password)
+            };
+
+            var mail = new MailMessage
+            {
+                From = new MailAddress(_fromAddress, _fromDisplay),
+                Subject = subject,
+                Body = htmlBody ?? plainTextBody,
+                IsBodyHtml = htmlBody != null
+            };
+
+            mail.To.Add(to);
+
+            if (!string.IsNullOrEmpty(attachmentPath) && File.Exists(attachmentPath))
+            {
+                mail.Attachments.Add(new Attachment(attachmentPath));
+            }
+
+            try
+            {
+                smtp.Send(mail);
+                _logger.LogInformation("Email sent to {Recipient}", to);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send email to {Recipient}", to);
+            }
+        }
+    }
+}

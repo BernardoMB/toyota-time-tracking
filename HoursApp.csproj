@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	  <UserSecretsId>1c44a5b7-c902-4bec-b7d9-180abb75e04a</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EPPlus" Version="8.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Graph" Version="5.82.0" />
+		<PackageReference Include="Microsoft.Identity.Client" Version="4.73.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>
