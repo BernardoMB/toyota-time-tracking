@@ -11,6 +11,15 @@ This application automates the timesheet reporting process for Toyota and Advent
 	  "Mailtrap:Password": "*****"
 	}
 	```
+- Change existing configurations in `appsettings.json`
+
+# Debug
+
+Run the aplication from the comman line using:
+```bash
+ dotnet run -- <day> <hours> ...
+ ```
+ The arguments are optional.
 
 # Integrations
 

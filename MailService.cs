@@ -15,9 +15,6 @@ namespace HoursApp
         private readonly string _username;
         private readonly string _password;
 
-        private readonly string _fromAddress = "bmondragonbrozon@gmail.com";
-        private readonly string _fromDisplay = "Bernardo Mondragon";
-
         public MailService(ILogger<MailService> logger, IConfiguration config)
         {
             _logger = logger;
@@ -27,7 +24,7 @@ namespace HoursApp
             _password = _config["Mailtrap:Password"];
         }
 
-        public void SendEmail(string to, string subject, string plainTextBody, string? htmlBody = null, string? attachmentPath = null)
+        public void SendEmail(string fromAddress, string fromDisplay, string to, string cc, string subject, string plainTextBody, string? htmlBody = null, string? attachmentPath = null)
         {
             using var smtp = new SmtpClient
             {
@@ -39,13 +36,17 @@ namespace HoursApp
 
             var mail = new MailMessage
             {
-                From = new MailAddress(_fromAddress, _fromDisplay),
+                From = new MailAddress(fromAddress, fromDisplay),
                 Subject = subject,
                 Body = htmlBody ?? plainTextBody,
                 IsBodyHtml = htmlBody != null
             };
 
             mail.To.Add(to);
+            if (!string.IsNullOrEmpty(cc))
+            {
+                mail.CC.Add(cc);
+            }
 
             if (!string.IsNullOrEmpty(attachmentPath) && File.Exists(attachmentPath))
             {
