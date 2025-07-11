@@ -101,6 +101,8 @@ public class App
 
         #region Download approval
         // This is a manual process, unfortunately I need to register an app and asign it permissions to access Toyota's corporate email
+        // TODO: 1. Implement a Power Automate flow in Toyota's corporate Microsoft Account to forward the approval to my personal email inbox (Gmail)
+        // TODO: 2. Download the approval from my personal email inbox (Gmail)
         #endregion
 
         DateTime today = DateTime.Today;
@@ -112,7 +114,8 @@ public class App
         // Then get previous week's Monday
         var previousMonday = monday.AddDays(-7);
         string lastWeekMondayFormattedDate = previousMonday.ToString("yyyy MM dd");
-        string lastWeekApprovalfileName = $"Re Hours Week {lastWeekMondayFormattedDate} Monday.msg";
+        string extension = _config["ApprovalsExtension"];
+        string lastWeekApprovalfileName = $"Re_ Hours Week {lastWeekMondayFormattedDate} Monday.{extension}";
         string lastWeekApprovalFullPath = $"{_config["ApprovalsLocation"]}\\{lastWeekApprovalfileName}";
 
         if (File.Exists(lastWeekApprovalFullPath))
@@ -120,7 +123,7 @@ public class App
             _logger.LogInformation($"Approval for week {lastWeekMondayFormattedDate} found.");
 
             // Send the Approval email to Employer
-            _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["EmployerEmail"], null, $"Toyota's Hours Approval", $"Hi,\nHere's Toyota's hours approval for last week and the week before last week.\nBest regards,\nBernardo", null, lastWeekApprovalFullPath);
+            _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["EmployerEmail"], null, $"Toyota's Hours Approval", $"Hi,\n\nHere's Toyota's hours approval for last week and the week before last week.\n\nBest regards,\n\nBernardo", null, lastWeekApprovalFullPath);
 
             _logger.LogInformation($"Approval for week {lastWeekMondayFormattedDate} found.");
 
@@ -129,7 +132,7 @@ public class App
             string sentOnDate = DateTime.Today.ToString("yyyy-MM-dd");
             string folder = Path.GetDirectoryName(originalPath);
 
-            string newFileName = $"Re Hours Week {lastWeekMondayFormattedDate} Monday (Sent {sentOnDate}).msg";
+            string newFileName = $"Re_ Hours Week {lastWeekMondayFormattedDate} Monday (Sent {sentOnDate}).{extension}";
             string newPath = Path.Combine(folder, newFileName);
 
             File.Move(originalPath, newPath);
@@ -191,16 +194,20 @@ public class App
             package.SaveAs(new FileInfo(fullPath));
             _logger.LogInformation($"Generate hours file: {fileName}.");
         }
+        else
+        {
+            _logger.LogInformation($"Hours file already exists. No need to generate new file.");
+        }
         #endregion
 
         #region Send hours to supervisor
-        _mailService.SendEmail(_config["CorporateFromAddress"], _config["CorporateFromDisplay"], _config["SupervisorEmail"], null, $"Hours Week {formattedDate} Monday", $"Hi Chris,\nHere are my hours for last week.\nBest regards,\nBernardo", null, fullPath);
+        _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["CorporateAddress"], null, $"Hours Week {formattedDate} Monday", $"Hi Chris,\n\nHere are my hours for last week.\n\nBest regards,\n\nBernardo", null, fullPath);
 
         _logger.LogInformation($"Hours for week {formattedDate} sent to supervisor.");
         #endregion
 
         #region Send reporting email to Employer
-        _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["EmployerEmail"], null, $"Toyota's Hours", $"Hi,\nHere are this week's hours for Toyota's project.\nI'll send the approval when available.\nBest regards,\nBernardo", null, fullPath);
+        _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["EmployerEmail"], null, $"Toyota's Hours", $"Hi,\n\nHere are this week's hours for Toyota's project.\nI'll send the approval when available.\n\nBest regards,\n\nBernardo", null, fullPath);
 
         _logger.LogInformation($"Hours for week {formattedDate} sent to employer.");
         #endregion

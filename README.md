@@ -9,6 +9,7 @@ This application automates the timesheet reporting process for Toyota and Advent
 	{
 	  "Mailtrap:Username": "*****",
 	  "Mailtrap:Password": "*****"
+	  "GoogleAppPassword": "*****"
 	}
 	```
 - Change existing configurations in `appsettings.json`
