@@ -15,6 +15,13 @@ This application automates the timesheet reporting process for Toyota and Advent
 
 # Debug
 
+Make sure you can connect to the SMTP sever by running the following command:
+```bash
+Test-NetConnection smtp.mailtrap.io -Port 587
+// or
+telnet smtp.mailtrap.io 587
+```
+
 Run the aplication from the comman line using:
 ```bash
  dotnet run -- <day> <hours> ...

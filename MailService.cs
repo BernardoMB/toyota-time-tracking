@@ -26,6 +26,8 @@ namespace HoursApp
 
         public void SendEmail(string fromAddress, string fromDisplay, string to, string cc, string subject, string plainTextBody, string? htmlBody = null, string? attachmentPath = null)
         {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
             using var smtp = new SmtpClient
             {
                 Host = Host,
@@ -36,7 +38,8 @@ namespace HoursApp
 
             var mail = new MailMessage
             {
-                From = new MailAddress(fromAddress, fromDisplay),
+                //From = new MailAddress(fromAddress, fromDisplay),
+                From = new MailAddress("from@example.com", fromDisplay),
                 Subject = subject,
                 Body = htmlBody ?? plainTextBody,
                 IsBodyHtml = htmlBody != null
@@ -50,7 +53,7 @@ namespace HoursApp
 
             if (!string.IsNullOrEmpty(attachmentPath) && File.Exists(attachmentPath))
             {
-                mail.Attachments.Add(new Attachment(attachmentPath));
+                //mail.Attachments.Add(new Attachment(attachmentPath));
             }
 
             try
@@ -60,6 +63,7 @@ namespace HoursApp
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Failed to send email to {Recipient}. Inner: {Inner}", to, ex.InnerException?.Message);
                 _logger.LogError(ex, "Failed to send email to {Recipient}", to);
             }
         }

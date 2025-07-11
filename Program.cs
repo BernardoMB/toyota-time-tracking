@@ -11,6 +11,8 @@ class Program
     static async Task Main(string[] args)
     {
         var config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .AddUserSecrets<Program>()
             .Build();
 
@@ -18,6 +20,7 @@ class Program
             .ConfigureServices((context, services) =>
             {
                 services.AddLogging(); // Add logging service
+                services.AddSingleton<IConfiguration>(config);
                 services.AddTransient<App>(); // App is your custom service
                 services.AddSingleton<MailService>();
             })

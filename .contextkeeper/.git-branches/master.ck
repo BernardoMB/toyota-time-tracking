@@ -15,6 +15,22 @@
         {
           "Documents": [
             {
+              "FilePath": "C:\\Users\\Bbronson\\AppData\\Roaming\\Microsoft\\UserSecrets\\1c44a5b7-c902-4bec-b7d9-180abb75e04a\\secrets.json",
+              "RelativePath": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\1c44a5b7-c902-4bec-b7d9-180abb75e04a\\secrets.json",
+              "FullName": "secrets.json",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 284
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": true
+            },
+            {
               "FilePath": "C:\\Users\\Bbronson\\source\\repos\\toyota-time-tracking\\appsettings.json",
               "RelativePath": "..\\..\\appsettings.json",
               "FullName": "appsettings.json",
@@ -26,7 +42,7 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 17,
+              "Line": 18,
               "Column": 2,
               "IsPinned": true
             },
@@ -42,19 +58,17 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 184,
-              "Column": 51,
+              "Line": 105,
+              "Column": 9,
               "Breakpoints": [
                 {
                   "IsEnabled": true,
-                  "Line": 103,
+                  "Line": 99,
                   "Condition": "",
                   "ConditionType": "WhenTrue"
                 }
               ],
-              "IsPinned": true,
-              "IsActive": true,
-              "IsSelected": true
+              "IsPinned": true
             },
             {
               "FilePath": "C:\\Users\\Bbronson\\source\\repos\\toyota-time-tracking\\MailService.cs",
@@ -68,9 +82,48 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 27,
-              "Column": 31,
-              "IsPinned": true
+              "Line": 64,
+              "Column": 13,
+              "Breakpoints": [
+                {
+                  "IsEnabled": true,
+                  "Line": 54,
+                  "Condition": "",
+                  "ConditionType": "WhenTrue"
+                }
+              ],
+              "IsPinned": true,
+              "IsSelected": true
+            },
+            {
+              "FilePath": "C:\\Users\\Bbronson\\source\\repos\\toyota-time-tracking\\HoursApp.csproj",
+              "RelativePath": "..\\..\\HoursApp.csproj",
+              "FullName": "HoursApp.csproj",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 284
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Users\\Bbronson\\source\\repos\\toyota-time-tracking\\HoursApp.csproj",
+              "RelativePath": "..\\..\\HoursApp.csproj",
+              "FullName": "HoursApp.csproj",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 284
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "IsPinned": false
             },
             {
               "FilePath": "C:\\Users\\Bbronson\\source\\repos\\toyota-time-tracking\\DayException.cs",
@@ -101,7 +154,7 @@
                 "Value": 200
               },
               "Line": 22,
-              "Column": 29,
+              "Column": 28,
               "IsPinned": false
             }
           ],
