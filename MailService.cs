@@ -37,50 +37,7 @@ namespace HoursApp
                 Credentials = new NetworkCredential(_username, _password)
             };
 
-            var mail = new MailMessage
-            {
-                From = new MailAddress(fromAddress, fromDisplay),
-                Subject = subject,
-                Body = htmlBody ?? plainTextBody,
-                IsBodyHtml = htmlBody != null
-            };
-
-            mail.To.Add(to);
-            if (!string.IsNullOrEmpty(cc))
-            {
-                mail.CC.Add(cc);
-            }
-
-            if (!string.IsNullOrEmpty(attachmentPath) && File.Exists(attachmentPath))
-            {
-                mail.Attachments.Add(new Attachment(attachmentPath));
-            }
-
-            try
-            {
-                smtp.Send(mail);
-                _logger.LogInformation("Email sent to {Recipient}", to);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to send email to {Recipient}. Inner: {Inner}", to, ex.InnerException?.Message);
-                _logger.LogError(ex, "Failed to send email to {Recipient}", to);
-            }
-        }
-        
-        public void SendEmailToyota(string fromAddress, string fromDisplay, string to, string cc, string subject, string plainTextBody, string? htmlBody = null, string? attachmentPath = null)
-        {
-            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
-            using var smtp = new SmtpClient
-            {
-                Host = "smtp.office365.com",
-                Port = 587,
-                EnableSsl = true,
-                Credentials = new NetworkCredential("bernardo.mondragon@tmhna.com", "LittleTank#4")
-            };
-
-            var mail = new MailMessage
+            using var mail = new MailMessage
             {
                 From = new MailAddress(fromAddress, fromDisplay),
                 Subject = subject,

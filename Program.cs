@@ -99,21 +99,25 @@ public class App
     {
         _logger.LogInformation("App started!");
 
-        #region Download approval
-        // This is a manual process, unfortunately I need to register an app and asign it permissions to access Toyota's corporate email
-        // TODO: 1. Implement a Power Automate flow in Toyota's corporate Microsoft Account to forward the approval to my personal email inbox (Gmail)
-        // TODO: 2. Download the approval from my personal email inbox (Gmail)
-        #endregion
-
         DateTime today = DateTime.Today;
         int diff = today.DayOfWeek - DayOfWeek.Monday;
         if (diff < 0) diff += 7; // Ensure we go backwards to previous Monday if needed
         DateTime monday = today.AddDays(-diff);
-
-        #region Send Last week's approval to employer
         // Then get previous week's Monday
         var previousMonday = monday.AddDays(-7);
         string lastWeekMondayFormattedDate = previousMonday.ToString("yyyy MM dd");
+
+        #region Download approval
+
+        GmailAttachmentDownloader.DownloadLatestHoursWeekAttachment(
+            gmailUser: _config["PersonalFromAddress"],
+            appPassword: _config["GoogleAppPassword"],
+            downloadFolder: _config["ApprovalsLocation"],
+            fileName: $"Re_ Hours Week {lastWeekMondayFormattedDate} Monday.eml"
+        );
+        #endregion
+
+        #region Send Last week's approval to employer
         string extension = _config["ApprovalsExtension"];
         string lastWeekApprovalfileName = $"Re_ Hours Week {lastWeekMondayFormattedDate} Monday.{extension}";
         string lastWeekApprovalFullPath = $"{_config["ApprovalsLocation"]}\\{lastWeekApprovalfileName}";
@@ -125,8 +129,6 @@ public class App
             // Send the Approval email to Employer
             _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["EmployerEmail"], null, $"Toyota's Hours Approval", $"Hi,\n\nHere's Toyota's hours approval for last week and the week before last week.\n\nBest regards,\n\nBernardo", null, lastWeekApprovalFullPath);
 
-            _logger.LogInformation($"Approval for week {lastWeekMondayFormattedDate} found.");
-
             // Rename approval file to mark it as sent
             string originalPath = lastWeekApprovalFullPath;
             string sentOnDate = DateTime.Today.ToString("yyyy-MM-dd");
@@ -134,6 +136,12 @@ public class App
 
             string newFileName = $"Re_ Hours Week {lastWeekMondayFormattedDate} Monday (Sent {sentOnDate}).{extension}";
             string newPath = Path.Combine(folder, newFileName);
+
+            // If the destination file exists, delete it before renaming
+            if (File.Exists(newPath))
+            {
+                File.Delete(newPath);
+            }
 
             File.Move(originalPath, newPath);
             _logger.LogInformation($"File renamed to: {newFileName}");
@@ -200,16 +208,16 @@ public class App
         }
         #endregion
 
-        #region Send hours to supervisor
-        _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["CorporateAddress"], null, $"Hours Week {formattedDate} Monday", $"Hi Chris,\n\nHere are my hours for last week.\n\nBest regards,\n\nBernardo", null, fullPath);
-
-        _logger.LogInformation($"Hours for week {formattedDate} sent to supervisor.");
-        #endregion
-
         #region Send reporting email to Employer
         _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["EmployerEmail"], null, $"Toyota's Hours", $"Hi,\n\nHere are this week's hours for Toyota's project.\nI'll send the approval when available.\n\nBest regards,\n\nBernardo", null, fullPath);
 
         _logger.LogInformation($"Hours for week {formattedDate} sent to employer.");
+        #endregion
+
+        #region Send hours to supervisor
+        _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["CorporateAddress"], null, $"Hours Week {formattedDate} Monday", $"Hi Chris,\n\nHere are my hours for last week.\n\nBest regards,\n\nBernardo", null, fullPath);
+
+        _logger.LogInformation($"Hours for week {formattedDate} sent to supervisor.");
         #endregion
 
         return Task.CompletedTask;
