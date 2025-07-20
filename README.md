@@ -46,9 +46,15 @@ Run the aplication from the comman line using:
 
 # Integrations
 
+## Power Automate
+As a workaround to automate in corporate domain.
+
 ## Mailtrap
 This application uses *Mailtrap* to send emails programatically.
 DNS records are registered under domain `bernardomondragon.net`.
+
+## Gmail
+To access personal accounts.
 
 ## Office Open XML
 This application uses OfficeOpenXML libraries for excel file manipulation.
