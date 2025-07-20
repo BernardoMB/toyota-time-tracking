@@ -31,29 +31,31 @@ public class GmailAttachmentDownloader
             {
                 foreach (var attachment in message.Attachments)
                 {
+
+                    string writeFileName = string.Empty;
                     if (attachment is MimePart mimePart)
                     {
-                        fileName = mimePart.FileName;
+                        writeFileName = mimePart.FileName;
                     }
                     else if (attachment is MessagePart messagePart)
                     {
                         // MessagePart does not have FileName, use ContentDisposition or ContentType
-                        fileName = messagePart.ContentDisposition?.FileName ?? messagePart.ContentType.Name;
+                        writeFileName = messagePart.ContentDisposition?.FileName ?? messagePart.ContentType.Name;
+                    }
+                    if (string.IsNullOrEmpty(writeFileName) && !string.IsNullOrEmpty(fileName))
+                    {
+                        writeFileName = fileName;
+                    }
+                    if (string.IsNullOrEmpty(writeFileName))
+                    {
+                        writeFileName = attachment.ContentType.Name ?? "attachment";
+                    }
+                    if (string.IsNullOrEmpty(writeFileName))
+                    {
+                        throw new InvalidOperationException("Attachment does not have a valid file name.");
                     }
 
-                    // Fallback if filename is still null or empty
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = fileName;
-                    }
-
-                    // Fallback if filename is still null
-                    if (string.IsNullOrEmpty(fileName))
-                    {
-                        fileName = attachment.ContentType.Name ?? "attachment";
-                    }
                     var filePath = Path.Combine(downloadFolder, fileName);
-
                     using var stream = File.Create(filePath);
                     if (attachment is MessagePart rfc822)
                         rfc822.Message.WriteTo(stream);

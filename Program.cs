@@ -108,7 +108,6 @@ public class App
         string lastWeekMondayFormattedDate = previousMonday.ToString("yyyy MM dd");
 
         #region Download approval
-
         GmailAttachmentDownloader.DownloadLatestHoursWeekAttachment(
             gmailUser: _config["PersonalFromAddress"],
             appPassword: _config["GoogleAppPassword"],
@@ -217,7 +216,7 @@ public class App
         #region Send hours to supervisor
         _mailService.SendEmail(_config["PersonalFromAddress"], _config["PersonalFromDisplay"], _config["CorporateAddress"], null, $"Hours Week {formattedDate} Monday", $"Hi Chris,\n\nHere are my hours for last week.\n\nBest regards,\n\nBernardo", null, fullPath);
 
-        _logger.LogInformation($"Hours for week {formattedDate} sent to supervisor.");
+        _logger.LogInformation($"Hours for week {formattedDate} sent out to {_config["CorporateAddress"]} to trigger PowerAutomate flow.");
         #endregion
 
         return Task.CompletedTask;
