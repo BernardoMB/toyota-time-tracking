@@ -179,7 +179,8 @@ public class App
             var worksheet = package.Workbook.Worksheets[0]; // Access first sheet
 
             // Modify cell D9 with the week
-            worksheet.Cells["D9"].Value = monday.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
+            var dateCellValue = monday.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
+            worksheet.Cells["D9"].Value = dateCellValue;
 
             // Modify cell E9
             worksheet.Cells["D12"].Value = 8;
