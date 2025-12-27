@@ -46,6 +46,17 @@ Run the aplication from the comman line using:
 ```bash
  dotnet run -- <day> <hours> ...
  ```
+
+ Example:
+ ```bash
+ dotnet run -- 12/25/2025 0
+ ```
+
+ Example passing different number of hours for more than one date:
+ ```bash
+ dotnet run -- 12/25/2025 0 12/26/2025 0
+ ```
+
  The arguments are optional.
 
 # Integrations
