@@ -8,7 +8,7 @@ The first step, and the only manual step of the process, which is carried out ex
 
 	- **Step 2**: Run this program
 
-In this seconds step the application will read the approval email from the 'Approvals' folder. The approval email attachment will be downloaded into the file system.
+In this second step the application will read the approval email from the 'Approvals' folder. The approval email attachment will be downloaded into the file system.
 
 The program will then read the approval email and send it as an attachment to the employer using the SMTP server configured in the application's mail service. The email will be sent to the employer's email address, which is also configured in the application settings.
 
@@ -26,8 +26,6 @@ Note: This The application needs to be run every Friday at 5:00 PM. It will gene
 - Add the following user secrets
 	```bash
 	{
-	  "Mailtrap:Username": "*****",
-	  "Mailtrap:Password": "*****"
 	  "GoogleAppPassword": "*****"
 	}
 	```

@@ -20,8 +20,7 @@ namespace HoursApp
             _logger = logger;
             _config = config;
 
-            _username = _config["Mailtrap:Username"];
-            //_password = _config["Mailtrap:Password"];
+            _username = _config["PersonalFromAddress"];
             _password = _config["GoogleAppPassword"];
         }
 
