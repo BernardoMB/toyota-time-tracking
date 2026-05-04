@@ -1,0 +1,316 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-03-07T06:01:44.2691355Z",
+  "analysisEndTime": "2026-03-07T06:01:50.3475151Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 4,
+      "incidents": 8,
+      "effort": 8
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 1,
+        "Optional": 1,
+        "Potential": 6,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 6,
+        "Project": 1,
+        "Api": 1
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "HoursApp.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 8,
+      "properties": {
+        "appName": "HoursApp",
+        "projectKind": "DotNetCoreApp",
+        "frameworks": [
+          "net8.0-windows"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 4,
+        "numberOfCodeFiles": 4,
+        "linesTotal": 382,
+        "linesOfCode": 382,
+        "totalApiScanned": 546,
+        "minLinesOfCodeToChange": 1,
+        "maxLinesOfCodeToChange": 1
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "0ffcea3a-708c-4e86-96ea-c77657112cf1",
+          "ruleId": "NuGet.0002",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Configuration, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration, and replace with new package Microsoft.Extensions.Configuration 10.0.3",
+              "protected": "Microsoft.Extensions.Configuration, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration, and replace with new package Microsoft.Extensions.Configuration 10.0.3"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Microsoft.Extensions.Configuration, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration, and replace with new package Microsoft.Extensions.Configuration 10.0.3",
+            "protectedSnippet": "Microsoft.Extensions.Configuration, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration, and replace with new package Microsoft.Extensions.Configuration 10.0.3",
+            "label": "Microsoft.Extensions.Configuration 9.0.6",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Configuration",
+              "PackageVersion": "9.0.6",
+              "PackageNewVersion": "10.0.3",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "633560d6-965d-4237-8562-ea332738a587",
+          "ruleId": "NuGet.0002",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Configuration.Json, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.Json, and replace with new package Microsoft.Extensions.Configuration.Json 10.0.3",
+              "protected": "Microsoft.Extensions.Configuration.Json, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.Json, and replace with new package Microsoft.Extensions.Configuration.Json 10.0.3"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Microsoft.Extensions.Configuration.Json, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.Json, and replace with new package Microsoft.Extensions.Configuration.Json 10.0.3",
+            "protectedSnippet": "Microsoft.Extensions.Configuration.Json, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.Json, and replace with new package Microsoft.Extensions.Configuration.Json 10.0.3",
+            "label": "Microsoft.Extensions.Configuration.Json 9.0.6",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Configuration.Json",
+              "PackageVersion": "9.0.6",
+              "PackageNewVersion": "10.0.3",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "3dcc6331-dd0b-4543-a356-0bcfea8460fb",
+          "ruleId": "NuGet.0002",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Configuration.UserSecrets, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.3",
+              "protected": "Microsoft.Extensions.Configuration.UserSecrets, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.3"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Microsoft.Extensions.Configuration.UserSecrets, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.3",
+            "protectedSnippet": "Microsoft.Extensions.Configuration.UserSecrets, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Configuration.UserSecrets, and replace with new package Microsoft.Extensions.Configuration.UserSecrets 10.0.3",
+            "label": "Microsoft.Extensions.Configuration.UserSecrets 9.0.6",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Configuration.UserSecrets",
+              "PackageVersion": "9.0.6",
+              "PackageNewVersion": "10.0.3",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "0bc839cc-3560-4ced-a161-729938f265ad",
+          "ruleId": "NuGet.0002",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Hosting, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.3",
+              "protected": "Microsoft.Extensions.Hosting, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.3"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Microsoft.Extensions.Hosting, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.3",
+            "protectedSnippet": "Microsoft.Extensions.Hosting, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Hosting, and replace with new package Microsoft.Extensions.Hosting 10.0.3",
+            "label": "Microsoft.Extensions.Hosting 9.0.6",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Hosting",
+              "PackageVersion": "9.0.6",
+              "PackageNewVersion": "10.0.3",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "b14b41ee-35b5-41c2-a4c4-b25c21d79491",
+          "ruleId": "NuGet.0002",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Logging, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging, and replace with new package Microsoft.Extensions.Logging 10.0.3",
+              "protected": "Microsoft.Extensions.Logging, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging, and replace with new package Microsoft.Extensions.Logging 10.0.3"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Microsoft.Extensions.Logging, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging, and replace with new package Microsoft.Extensions.Logging 10.0.3",
+            "protectedSnippet": "Microsoft.Extensions.Logging, 9.0.6\n\nRecommendation:\n\nRemove Microsoft.Extensions.Logging, and replace with new package Microsoft.Extensions.Logging 10.0.3",
+            "label": "Microsoft.Extensions.Logging 9.0.6",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Logging",
+              "PackageVersion": "9.0.6",
+              "PackageNewVersion": "10.0.3",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "ecc05db6-6079-4b28-8ced-e7342fa2559f",
+          "ruleId": "NuGet.0005",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Identity.Client, 4.73.0\n\nRecommendation:\n\nA critical bug affects this version, resulting in HTTP timeouts under heavy load. See https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/5460 for details.\nRemove Microsoft.Identity.Client, and replace with new package Microsoft.Identity.Client, 4.82.1",
+              "protected": "Microsoft.Identity.Client, 4.73.0\n\nRecommendation:\n\nA critical bug affects this version, resulting in HTTP timeouts under heavy load. See https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/5460 for details.\nRemove Microsoft.Identity.Client, and replace with new package Microsoft.Identity.Client, 4.82.1"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Microsoft.Identity.Client, 4.73.0\n\nRecommendation:\n\nA critical bug affects this version, resulting in HTTP timeouts under heavy load. See https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/5460 for details.\nRemove Microsoft.Identity.Client, and replace with new package Microsoft.Identity.Client, 4.82.1",
+            "protectedSnippet": "Microsoft.Identity.Client, 4.73.0\n\nRecommendation:\n\nA critical bug affects this version, resulting in HTTP timeouts under heavy load. See https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/5460 for details.\nRemove Microsoft.Identity.Client, and replace with new package Microsoft.Identity.Client, 4.82.1",
+            "label": "Microsoft.Identity.Client 4.73.0",
+            "properties": {
+              "PackageId": "Microsoft.Identity.Client",
+              "PackageVersion": "4.73.0",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "61c97641-59fb-4172-a170-36ded7eb1cff",
+          "ruleId": "Project.0002",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0-windows\nRecommended target framework: net10.0--windows",
+              "protected": "Current target framework: net8.0-windows\nRecommended target framework: net10.0--windows"
+            },
+            "kind": "File",
+            "path": "HoursApp.csproj",
+            "snippet": "Current target framework: net8.0-windows\nRecommended target framework: net10.0--windows",
+            "protectedSnippet": "Current target framework: net8.0-windows\nRecommended target framework: net10.0--windows",
+            "properties": {
+              "CurrentTargetFramework": "net8.0-windows",
+              "RecommendedTargetFramework": "net10.0--windows"
+            }
+          }
+        },
+        {
+          "incidentId": "d8a3beac-4411-42ce-ba48-17615616858c",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: .NET 9 obsoletions with custom IDs ",
+          "projectPath": "HoursApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;",
+              "protected": "T:System.Net.ServicePointManager"
+            },
+            "kind": "File",
+            "path": "MailService.cs",
+            "snippet": "System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;",
+            "protectedSnippet": "T:System.Net.ServicePointManager",
+            "label": "T:System.Net.ServicePointManager",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/obsolete-apis-with-custom-diagnostics.md",
+                "isCustom": false
+              }
+            ],
+            "line": 28,
+            "column": 12
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0005": {
+      "id": "NuGet.0005",
+      "isFeature": false,
+      "description": "NuGet package is deprecated.\n\nGo to its documentation and if there is a guidance for replacement of functionality provided by this package.",
+      "label": "NuGet package is deprecated",
+      "severity": "Optional",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262531",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
